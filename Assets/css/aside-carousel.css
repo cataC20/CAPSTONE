@@ -1,0 +1,190 @@
+/* Aside Carousel Styles */
+.aside-carousel {
+    width: 100%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.aside-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 1000px; 
+}
+
+.aside-carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.aside-carousel-slide.active {
+    opacity: 1;
+}
+
+.aside-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease;
+}
+
+/* Hide the controls completely */
+.aside-carousel-controls {
+    display: none;
+}
+
+.aside-carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none; 
+}
+
+.aside-carousel-dot.active {
+    background: #0055b8;
+    transform: scale(1.2);
+}
+
+.aside-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .aside-carousel-container {
+        height: 600px; 
+    }
+    
+    .aside-carousel-button {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+    .modal-nav {
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .close-modal {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .aside-carousel-container {
+        height: 400px; /* Adjusted for small screens */
+    }
+    
+    .aside-carousel-button {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Navigation buttons for modal */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.modal-nav:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
